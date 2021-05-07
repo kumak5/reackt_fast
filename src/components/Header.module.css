@@ -1,0 +1,11 @@
+.header {
+    grid-area: h;
+
+    grid-template-rows: 120px 1fr;
+    grid-template-columns: 2fr 10fr;
+    background-color: brown;
+}
+
+.header img {
+    width: 100px;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from'./Navbar.module.css';
+import s from './Navbar.module.css';
 console.log(s)
 
 // let s = {
@@ -8,7 +8,7 @@ console.log(s)
 // }
 
 const Navbar = () => {
-    return <nav className='Navbar_nav__3SD7X'>
+    return <nav className={s.nav}>
         <div className='Navbar_item__nTXSX'>
             <a>Profile</a>
         </div>

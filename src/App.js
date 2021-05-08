@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import React from 'react';
 import './App.css';
-import Header from "./components/Header";
-import Profile from "./components/Profile";
-import Nav from "./components/Navbar";
+import Header from "./components/Header/Header";
+import MyPosts from "./components/Profile/MyPosts";
+import Nav from "./components/Navbar/Navbar";
 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
         <div className='app-wrapper' >
             <Header />
             <Nav/>
-            <Profile />
+            <MyPosts />
         </div>);
 }
 

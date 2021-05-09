@@ -3,19 +3,17 @@ import s from './MyPosts.module.css';
 import Post from "./MyPost/Post/Post";
 
 const MyPosts = () => {
-    return <div className={s.content}>
-                <div>
-            <img src='baikanur.jpg' />
+    return <div >
+        <div>
+            <img src='baikanur.jpg'/>
         </div>
         My post
         <div className={s.posts}>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
+            <Post message='Hi, how are you?' likesCount='0'/>
+            <Post message='It`s my first post' likesCount='25'/>
+
         </div>
+
     </div>
 }
 

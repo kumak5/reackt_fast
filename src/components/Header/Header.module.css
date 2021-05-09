@@ -8,4 +8,7 @@
 
 .header img {
     width: 100px;
+    /*height: 100%;*/
+    border-radius: 50%;
+    padding: 10px;
 }

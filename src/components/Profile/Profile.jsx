@@ -4,6 +4,8 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Post from "./MyPost/Post/Post";
 import MyPost from "./MyPost/MyPost";
 
+
+
 const Profile = () => {
     return <div>
         <ProfileInfo/>

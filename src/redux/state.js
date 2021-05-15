@@ -1,3 +1,7 @@
+let rerenderEntireTree = () =>{
+    console.log('stat chenged')
+}
+
 let state = {
     profilePage: {
         posts: [
@@ -6,6 +10,7 @@ let state = {
             {id: 2, message: 'H2!', likesCount: 25},
             {id: 3, message: 'Hi3', likesCount: 25}
         ],
+        newPostText: '!!!test!!!'
     },
 
     dialogsPage: {
@@ -24,7 +29,8 @@ let state = {
             {id: 4, message: 'Hi4'},
             {id: 5, message: 'Hi5'},
             {id: 6, message: 'Hi6'}
-        ]
+        ],
+        newMessageText: 'NewMessage'
     },
 
     sidebare: [
@@ -34,5 +40,44 @@ let state = {
     ]
 }
 
+
+export const addPost = () => {
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
+    }
+
+    state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ''
+    rerenderEntireTree(state)
+
+
+}
+
+export const addMessage = () => {
+    let newMessage = {
+        id: 7,
+        message: state.dialogsPage.newMessageText
+    }
+
+    state.dialogsPage.messages.push(newMessage)
+    state.dialogsPage.newMessageText = ''
+    rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (newMessage) =>{
+    state.dialogsPage.newMessageText = newMessage
+    rerenderEntireTree(state)
+}
+
+export const subscribe = (observer) =>{
+    rerenderEntireTree=observer
+}
 
 export default state;

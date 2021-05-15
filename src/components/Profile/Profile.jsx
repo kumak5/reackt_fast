@@ -9,7 +9,10 @@ import MyPost from "./MyPost/MyPost";
 const Profile = (props) => {
     return <div>
         <ProfileInfo/>
-        <MyPost posts={props.posts}/>
+        <MyPost posts={props.profilePage.posts}
+                newPostText={props.profilePage.newPostText}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}/>
     </div>
 }
 

@@ -14,8 +14,8 @@ let state = {
             {id: 2, name: 'Vasya'},
             {id: 3, name: 'Petya'},
             {id: 4, name: 'Nataliya'},
-            {id: 4, name: 'Nikolya'},
-            {id: 5, name: 'Anastasiya'}
+            {id: 5, name: 'Nikolya'},
+            {id: 6, name: 'Anastasiya'}
         ],
         messages: [
             {id: 1, message: 'Hi1'},
@@ -27,9 +27,12 @@ let state = {
         ]
     },
 
-    sidebare: {}
+    sidebare: [
+        {id: 1, name: 'Kolya'},
+        {id: 2, name: 'Vasya'},
+        {id: 3, name: 'Petya'}
+    ]
 }
-
 
 
 export default state;

@@ -36,32 +36,32 @@ let store = {
             {id: 3, name: 'Petya'}
         ]
     },
-    getState() {
-        return this._state
-    },
     _collSubscriber() {
         console.log('stat chenged')
     },
-    addPost() {
-
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._collSubscriber(this._state)
-
-
+    getState() {
+        return this._state
     },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._collSubscriber(this._state)
-    },
+    // addPost() {
+    //
+    //     let newPost = {
+    //         id: 5,
+    //         message: this._state.profilePage.newPostText,
+    //         likesCount: 0
+    //     }
+    //
+    //     this._state.profilePage.posts.push(newPost)
+    //     this._state.profilePage.newPostText = ''
+    //     this._collSubscriber(this._state)
+    //
+    //
+    // },
+    // updateNewPostText(newText) {
+    //     this._state.profilePage.newPostText = newText
+    //     this._collSubscriber(this._state)
+    // },
     subscribe(observer) {
-        this._collSubscriber=observer
+        this._collSubscriber = observer
     },
     addMessage() {
         let newMessage = {
@@ -76,6 +76,23 @@ let store = {
     updateNewMessageText(newMessage) {
         this._state.dialogsPage.newMessageText = newMessage
         this._collSubscriber(this._state)
+    },
+
+    dispatch(action) {//{tepe:'ADD-POST'}
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._collSubscriber(this._state)
+        } else if (action.type ==='UPDATE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newText
+            this._collSubscriber(this._state)
+        }
     }
 }
 

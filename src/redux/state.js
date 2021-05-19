@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 let store = {
     _state: {
         profilePage: {
@@ -27,7 +31,7 @@ let store = {
                 {id: 5, message: 'Hi5'},
                 {id: 6, message: 'Hi6'}
             ],
-            newMessageText: 'NewMessage'
+            newMessageText: 'NewMessage!!'
         },
 
         sidebare: [
@@ -42,24 +46,7 @@ let store = {
     getState() {
         return this._state
     },
-    // addPost() {
-    //
-    //     let newPost = {
-    //         id: 5,
-    //         message: this._state.profilePage.newPostText,
-    //         likesCount: 0
-    //     }
-    //
-    //     this._state.profilePage.posts.push(newPost)
-    //     this._state.profilePage.newPostText = ''
-    //     this._collSubscriber(this._state)
-    //
-    //
-    // },
-    // updateNewPostText(newText) {
-    //     this._state.profilePage.newPostText = newText
-    //     this._collSubscriber(this._state)
-    // },
+
     subscribe(observer) {
         this._collSubscriber = observer
     },
@@ -79,7 +66,7 @@ let store = {
     },
 
     dispatch(action) {//{tepe:'ADD-POST'}
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -89,12 +76,30 @@ let store = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._collSubscriber(this._state)
-        } else if (action.type ==='UPDATE-NEW-POST-TEXT'){
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText
+            this._collSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.dialogsPage.newMessageText = action.body
+            this._collSubscriber(this._state)
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.dialogsPage.newMessageText
+            this._state.dialogsPage.newMessageText = ""
+            this._state.dialogsPage.messages.push({id: 6, message: body})
             this._collSubscriber(this._state)
         }
     }
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text) => {
+    return {type: UPDATE_NEW_POST_TEXT, newText: text}
+}
+export const sendMessageCreator = () => ({type: SEND_MESSAGE})
+export const updateNewMessageTextCreator = (body) => {
+    return {type: UPDATE_NEW_MESSAGE_TEXT, body: body}
+}
+
 
 export default store
 window.store = store

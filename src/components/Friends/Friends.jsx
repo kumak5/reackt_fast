@@ -1,7 +1,5 @@
 import React from 'react'
 import s from './Friends.module.css'
-import DialogItem from "./DialogItem/DialogsItem";
-import Message from "./Message/Message";
 
 
 const Friends = (props) => {

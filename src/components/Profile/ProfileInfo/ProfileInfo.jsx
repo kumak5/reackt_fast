@@ -3,8 +3,8 @@ import s from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
     return <div>
-        <div>
-            <img src='baikanur.jpg'/>
+        <div className={s.profileImg}>
+            <img  src='baikanur.jpg'/>
         </div>
         <div className={s.descriptionBlock}>
             ava+description

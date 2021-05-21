@@ -10,14 +10,13 @@ const MyPost = (props) => {
 
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator())
+    let onAddPost = () => {
+        props.addPost()
     }
 
     let onPostChange = () => {
         let text = newPostElement.current.value
-        let action = updateNewPostTextActionCreator(text)
-        props.dispatch(action)
+        props.updateNewPostText(text)
     }
 
     return <div className={s.postBlock}>
@@ -30,7 +29,7 @@ const MyPost = (props) => {
                           value={props.newPostText}/>
             </div>
             <div>
-                <button onClick={addPost}>
+                <button onClick={onAddPost}>
                     Add post
                 </button>
             </div>

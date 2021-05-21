@@ -7,33 +7,25 @@ import Navbar from "./components/Navbar/Navbar";
 import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import {Route} from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
     return (
-
         <div className='app-wrapper'>
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/dialogs'
-                       render={() =>
-                           <Dialogs
-                               dispatch={props.dispatch}
-                               messages={props.state.dialogsPage.messages}
-                               dialogs={props.state.dialogsPage.dialogs}
-                               newMessageText={props.state.dialogsPage.newMessageText}
-                               />}/>
+                       render={() => <DialogsContainer store={props.store} />}/>
                 <Route path='/profile'
-                       render={() =>
-                           <Profile profilePage={props.state.profilePage}
-                                    dispatch={props.dispatch}/>}/>
+                       render={() => <Profile store={props.store} />}/>
                 <Route path='/news' component={News}/>
             </div>
         </div>
 
 
     )
-}
 
+}
 export default App;

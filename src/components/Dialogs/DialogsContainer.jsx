@@ -1,12 +1,29 @@
 import React from 'react'
 import {sendMessageCreator, updateNewMessageTextCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-import StoreContext from "../../redux/StoreContext";
+import {connect} from "react-redux";
 
 
-const DialogsContainer = () => {
+let mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onSendMessageClick: () => {
+            dispatch(sendMessageCreator());
+        },
+        onMessageChange: (body) => {
+            dispatch(updateNewMessageTextCreator(body));
+        }
+    }
+}
 
-    return (
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+
+    /*return (
         <StoreContext.Consumer>
             {
                 (store) => {
@@ -25,5 +42,5 @@ const DialogsContainer = () => {
             }
         </StoreContext.Consumer>
     )
-}
+}*/
 export default DialogsContainer;

@@ -24,8 +24,7 @@ const MyPost = (props) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement}
-                              value={props.newPostText}/>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={onAddPost}>Add post</button>
@@ -38,27 +37,6 @@ const MyPost = (props) => {
     )
 }
 
-/*return <div className={s.postBlock}>
 
-    <h3>My post</h3> k
-    <div>
-        <div>
-            <textarea onChange={onPostChange}
-                      ref={newPostElement}
-                      value={props.newPostText}/>
-        </div>
-        <div>
-            <button onClick={onAddPost}>
-                Add post
-            </button>
-        </div>
-    </div>
-    <div className={s.posts}>
-        {postsElements}
-
-    </div>
-
-</div>
-}*/
 
 export default MyPost;

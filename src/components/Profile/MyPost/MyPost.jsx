@@ -15,11 +15,6 @@ const MyPost = (props) => {
     }
 
     let onPostChange = () => {
-        let text = newPostElement.current.value
-        props.updateNewPostText(text)
-    }
-
-    let onPostChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
     }
@@ -34,36 +29,36 @@ const MyPost = (props) => {
                 </div>
                 <div>
                     <button onClick={onAddPost}>Add post</button>
-                </div>ё
+                </div>
             </div>
             <div className={s.posts}>
                 {postsElements}
             </div>
-        </div>k
+        </div>
     )
 }
 
-    /*return <div className={s.postBlock}>
+/*return <div className={s.postBlock}>
 
-        <h3>My post</h3>
+    <h3>My post</h3>
+    <div>
         <div>
-            <div>
-                <textarea onChange={onPostChange}
-                          ref={newPostElement}
-                          value={props.newPostText}/>
-            </div>
-            <div>
-                <button onClick={onAddPost}>
-                    Add post
-                </button>
-            </div>
+            <textarea onChange={onPostChange}
+                      ref={newPostElement}
+                      value={props.newPostText}/>
         </div>
-        <div className={s.posts}>
-            {postsElements}
-
+        <div>
+            <button onClick={onAddPost}>
+                Add post
+            </button>
         </div>
+    </div>
+    <div className={s.posts}>
+        {postsElements}
 
     </div>
+
+</div>
 }*/
 
 export default MyPost;

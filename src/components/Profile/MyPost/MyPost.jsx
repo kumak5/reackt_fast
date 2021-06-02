@@ -42,6 +42,7 @@ const MyPost = (props) => {
         </div>
     )
 }
+
     /*return <div className={s.postBlock}>
 
         <h3>My post</h3>

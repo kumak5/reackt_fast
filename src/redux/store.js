@@ -42,7 +42,7 @@ let store = {
         ]
     },
     _collSubscriber() {
-        console.log('stat chenged')
+        console.log('state chenged')
     },
     getState() {
         return this._state
@@ -52,15 +52,12 @@ let store = {
         this._collSubscriber = observer
     },
 
-
-
     dispatch(action) {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._collSubscriber(this._state)
-
     }
 }
 

@@ -11,10 +11,10 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        onSendMessageClick: () => {
+        sendMessage: () => {
             dispatch(sendMessageCreator());
         },
-        onMessageChange: (body) => {
+        updateNewMessageBody: (body) => {
             dispatch(updateNewMessageTextCreator(body));
         }
     }
@@ -22,25 +22,4 @@ let mapDispatchToProps = (dispatch) => {
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-
-    /*return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    let state = store.getState().dialogsPage
-
-                    let onSendMessageClick = () => {
-                        store.dispatch(sendMessageCreator())
-                    }
-                    let onMessageChange = (body) => {
-                        store.dispatch(updateNewMessageTextCreator(body))
-                    }
-                    return <Dialogs updateNewMessageBody={onMessageChange}
-                                    sendMessage={onSendMessageClick}
-                                    dialogsPage={state}/>
-                }
-            }
-        </StoreContext.Consumer>
-    )
-}*/
 export default DialogsContainer;
